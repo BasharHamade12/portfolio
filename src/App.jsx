@@ -7,7 +7,7 @@ const Header = () => (
   <header className="header">
     <h1>BASHAR HAMADE</h1>
     <div className="contact-info">
-      <p>Richard-Wagner-Straße 91, 66125 Saarbrücken, Germany</p>
+      {/*<p>Richard-Wagner-Straße 91, 66125 Saarbrücken, Germany</p>*/}
       <div className="contact-links">
         <a href="mailto:baha00002@stud.uni-saarland.de"><FaEnvelope />baha00002@stud.uni-saarland.de</a>
         <a href="tel:+4915734939055"><FaPhone /> +49 1573 4939055</a>
