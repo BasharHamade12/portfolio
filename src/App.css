@@ -1,3 +1,77 @@
+.header {
+  display: flex;
+  width: 100%;
+  height: auto; /* Adjust as needed */
+}
+
+.header-left,
+.header-right {
+  padding: 20px; /* Add some padding around the content */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push typewriter to top and footer to bottom */
+  height: 100%; /* Ensure the right side takes full available height */
+}
+
+.header-left {
+  padding: 20px; /* Add some padding around the image */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+.profile-image {
+  max-width: 100%; /* Adjust the maximum width of the image */
+  max-height: 100%; /* Adjust the maximum height of the image */
+  object-fit: contain; /* Ensure the image fits within the container */
+}
+
+.header-right {
+  padding: 20px; /* Add some padding around the content */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push typewriter to top and footer to bottom */
+}
+
+.typewriter-container {
+  height: 90%; /* Set the height to 90% of its parent */
+  /* Add any other styling for the typewriter container if needed */
+  display: flex; /* Optional: If you want to center the text vertically within the 90% */
+  align-items: center; /* Optional: Vertically center content */
+  justify-content: center; /* Optional: Horizontally center content */
+}
+
+.typewriter-container .Typewriter__wrapper {
+  display: inline-block; /* To contain the styling */ 
+  color: #ff6b6b;
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.typewriter-container .Typewriter__wrapper > span {
+  color: gold; /* Default color for the second part */
+}
+
+/* Target the initial characters to be hot pink */
+.typewriter-container .Typewriter__wrapper > span:nth-child(-n+10) { /* Adjust '10' based on the typical length of your first part */
+  color: hotpink;
+}
+.contact-footer {
+  margin-top: 20px; /* Add some space between the typewriter and the footer */
+}
+
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit; /* Or your preferred color */
+}
+
+.contact-links svg {
+  margin-right: 5px;
+}
+
 /* App.css */
 body {
   font-family: 'Arial', sans-serif;
@@ -271,4 +345,167 @@ h3 {
 
 .project-link:hover {
   color: #ff6b6b;
+} 
+/* Add this to App.css */
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .header-left, .header-right {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .header-right {
+    padding: 1rem;
+  }
+
+  /* Typewriter text size reduction */
+  .typewriter-container .Typewriter__wrapper {
+    font-size: 1.2rem;
+  }
+
+  /* Contact links stack vertically */
+  footer div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem !important;
+  }
+
+  /* Education cards full width */
+  .education-card {
+    flex: 1 1 100%;
+  }
+
+  /* Skills grid single column */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Project cards full width */
+  .project-card {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+
+  /* Section padding reduction */
+  .section {
+    padding: 1.5rem;
+  }
+
+  /* Experience list items */
+  .experience-entry ul {
+    padding-left: 1rem;
+  }
+
+  /* Project links stack */
+  .project-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Tech tags wrap */
+  .tech-stack {
+    gap: 0.5rem;
+  }
+
+  /* General font size adjustments */
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .objective {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .typewriter-container .Typewriter__wrapper {
+    font-size: 1rem;
+  }
+
+  .header-left img {
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  .project-card {
+    min-width: 100%;
+  }
+
+  .tech-tag {
+    font-size: 0.8rem;
+  }
+}
+
+/* Add viewport meta tag recommendation */
+/* Include this in your HTML head:
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+*/
+
+/* Mobile Header Styles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  header > div:first-child { /* Image container */
+    height: 40vh !important;
+    flex: none !important;
+    min-width: 100% !important;
+  }
+
+  header > div:last-child { /* Content container */
+    min-width: 100% !important;
+    padding: 1rem !important;
+    text-align: center;
+    background-color: transparent !important;
+  }
+
+  .Typewriter__wrapper {
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+  }
+
+  footer div {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    padding-top: 1rem !important;
+  }
+
+  footer a {
+    min-width: 100% !important;
+    justify-content: center;
+  }
+
+  footer span {
+    white-space: normal !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  header > div:first-child {
+    height: 35vh !important;
+  }
+
+  .Typewriter__wrapper {
+    font-size: 1rem !important;
+  }
+
+  footer a {
+    font-size: 0.9rem;
+  }
 }

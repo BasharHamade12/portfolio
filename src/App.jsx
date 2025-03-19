@@ -1,19 +1,148 @@
 // App.js
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone,FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone,FaExternalLinkAlt } from 'react-icons/fa'; 
+import Typewriter from 'typewriter-effect';
+import myImage from './Floppa.png'; // Import the image
 import './App.css';
 
+const typewriterTexts = [
+  'Objective: <split> Passionate software developer seeking to develop technical skills in various fields of computer science and gain hands-on experience in real-world projects.',
+  'Skills: <split>Fullstack Web & App development,Game development and 3d Modelling,Functional Programming and Verification Languages',
+  'Experience: <split>1.5 years Reasearch Assistant at DFKI in domain of Deep Learning, Math Tutoring at the University, and IT & Software development at Kalku', 
+  'Interests: <split>Big Floppa,Big Floppa....and BIG FLOPPA !!!!!',
+  // ... more texts
+];  
+
+const contactLinks = [
+  { href: "mailto:baha00002@stud.uni-saarland.de", icon: <FaEnvelope />, text: "baha00002@stud.uni-saarland.de" },
+  { href: "tel:+4915734939055", icon: <FaPhone />, text: "+49 1573 4939055" },
+  { href: "https://linkedin.com/in/bashar-hamade-a89685229", icon: <FaLinkedin />, text: "LinkedIn" },
+  { href: "https://github.com/BasharHamade12", icon: <FaGithub />, text: "GitHub" }
+];
 const Header = () => (
-  <header className="header">
-    <h1>BASHAR HAMADE</h1>
-    <div className="contact-info">
-      {/*<p>Richard-Wagner-Straße 91, 66125 Saarbrücken, Germany</p>*/}
-      <div className="contact-links">
-        <a href="mailto:baha00002@stud.uni-saarland.de"><FaEnvelope />baha00002@stud.uni-saarland.de</a>
-        <a href="tel:+4915734939055"><FaPhone /> +49 1573 4939055</a>
-        <a href="https://linkedin.com/in/bashar-hamade-a89685229" target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a>
-        <a href="https://github.com/BasharHamade12" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub</a>
+  <header
+    style={{
+      display: 'flex',
+      flexDirection: 'row',
+      height: '50vh',
+      width: '100%',
+      position: 'relative',
+      overflow: 'hidden'
+    }}
+  >
+    {/* Left side (image) */}
+    <div
+      style={{
+        flex: 1,
+        position: 'relative',
+        height: '100%',
+        minWidth: '50%', // Set minimum width for desktop
+      }}
+    >
+      <img
+        src={myImage}
+        alt="Profile"
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+        }}
+      />
+    </div>
+
+    {/* Right side (content) */}
+    <div
+      style={{
+        flex: 1,
+        padding: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        gap: '1.5rem',
+        height: '100%',
+        minWidth: '50%', // Set minimum width for desktop 
+        
+        position: 'relative',
+        zIndex: 2,
+        backgroundColor: '#2d2d2d' // Add background color for better visibility
+      }}
+    >
+      <div style={{
+        color: "#ff6b6b",
+        textShadow: "0 0 10px rgba(255, 107, 107, 0.5)", 
+        fontSize: "1.2rem", 
+        maxWidth : "90%",
+        lineHeight: 1.2
+      }}>
+        <Typewriter
+          options={{
+            strings: typewriterTexts,
+            autoStart: true,
+            loop: true,
+            delay: 20,
+            pauseFor: 500,
+          }}
+        />
       </div>
+
+      <footer>
+  <div style={{ 
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '1.5rem',
+    paddingTop: "2rem",
+    flexWrap: 'wrap',
+    justifyContent: 'center', 
+    maxWidth : '80%'
+  }}>
+    {contactLinks.map((link, index) => (
+      <a 
+        key={index} 
+        href={link.href} 
+        style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '0.75rem',
+          padding: '0.75rem 1.25rem',
+          borderRadius: '25px',
+          backgroundColor: 'rgba(255, 107, 107, 0.1)',
+          border: '1px solid rgba(255, 107, 107, 0.3)',
+          textDecoration: 'none',
+          color: '#e0e0e0',
+          transition: 'all 0.3s ease',
+          minWidth: 'fit-content',
+          backdropFilter: 'blur(4px)',
+          ':hover': {
+            backgroundColor: 'rgba(255, 107, 107, 0.2)',
+            borderColor: '#ff6b6b',
+            boxShadow: '0 0 10px rgba(255, 107, 107, 0.3)',
+            transform: 'translateY(-2px)'
+          }
+        }}
+      >
+        {React.cloneElement(link.icon, { 
+          style: { 
+            color: '#ff6b6b',
+            fontSize: '1.25rem',
+            transition: 'color 0.3s ease'
+          } 
+        })}
+        <span style={{ 
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          fontSize: '0.95rem',
+          fontWeight: '500'
+        }}>
+          {link.text}
+        </span>
+      </a>
+    ))}
+  </div>
+</footer>
     </div>
   </header>
 );
