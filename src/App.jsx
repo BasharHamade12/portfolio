@@ -7,8 +7,8 @@ import './App.css';
 
 const typewriterTexts = [
   'Objective: <split> Passionate software developer seeking to develop technical skills in various fields of computer science and gain hands-on experience in real-world projects.',
-  'Skills: <split>Fullstack Web & App development,Game development and 3d Modelling,Functional Programming and Verification Languages',
-  'Experience: <split>1.5 years Reasearch Assistant at DFKI in domain of Deep Learning, Math Tutoring at the University, and IT & Software development at Kalku', 
+  'Skills: <split>Fullstack Web and App development,Game development and 3d Modelling,Functional Programming and Verification Languages',
+  'Experience: <split>1.5 years Reasearch Assistant at DFKI in domain of Deep Learning, Math Tutoring at the University, and IT and Software development at Kalku', 
   'Interests: <split>Big Floppa,Big Floppa....and BIG FLOPPA !!!!!',
   // ... more texts
 ];  
